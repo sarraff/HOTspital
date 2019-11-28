@@ -13,9 +13,7 @@ int main(){
 		strcpy(p->fname,fname.c_str());
 		strcpy(p->lname,lname.c_str());
 		p->record[0]='\0';
-		//p->lname="xyz";
 		p->LDAP =i+1;
-		//cout<<p->fname<<" "<<p->LDAP<<endl;
 		fout.write(reinterpret_cast<char*>(p), sizeof(patient));
 	}
 	fout.close();

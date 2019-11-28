@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 #include "pharmacist.cpp"
-// #include <windows.h>
-//#include "pass.cpp"
-int num(char* n){
+int num(char* n){     //          
 	if(*(n+1))
 		return (*n-'0')*10 + *(n+1)-'0';
 	else
@@ -13,7 +11,7 @@ typedef struct login{
 	char pass[20];
 	int num;
 }login;
-patient* writePrescription(patient* p){
+patient* writePrescription(patient* p){											
 		int med,quant;
 		inventory ik;
 		ifstream fin;
@@ -41,8 +39,6 @@ patient* writePrescription(patient* p){
 		scanf("%c",&x);
 		fgets (dmarks, 55, stdin);
 		string temp;
-		//scanf ("%[^\n]%*c", dmarks);
-		//cin>>dmarks;y
 		strcpy(p->dRemarks,dmarks);
 		
 		temp=(string)p->record+(string)"\n"+(string)dmarks;
@@ -58,8 +54,6 @@ int main(){
 	cin>>username;
 	cout<<"Enter Password"<<endl;
 	cin>>password;
-	// string pass=getpass("Enter Password: ",true);
-	// strcpy(password,pass.c_str());
 	login l;
 	bool flag=true;
 	while(true){

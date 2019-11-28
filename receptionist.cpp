@@ -122,14 +122,3 @@ class receptionist
 			initial_diagnosis(num);
 		}
 	}
-
-
-/*int main()
-{
-	receptionist r;
-	int ldapID;
-	ldapID=r.student_id();
-	r.initial_diagnosis(ldapID);
-	return 0;
-
-}*/
