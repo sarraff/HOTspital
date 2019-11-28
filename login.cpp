@@ -48,7 +48,7 @@ patient* writePrescription(patient* p){
 int main(){
 	while(true){
 	cout<<"\n\n==================================================================\n";
-	cout<<"                      WELCOME TO IITJ HC CENTER";
+	cout<<"                      WELCOME TO IITJ HEALTH CENTER";
 	cout<<"\n==================================================================\n";
 	ifstream fin;
 	fin.open("admin/records/login.txt");
