@@ -3,8 +3,6 @@
 using namespace std;
 
 class doctor:virtual public patient{
-private:
-	//removeFromQueue(LDAP);
 public:
 	int LDAP;
 	char name[15];

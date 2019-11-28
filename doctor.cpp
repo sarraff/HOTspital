@@ -24,7 +24,6 @@ void displayMedicalRecord(patient* p){
 	cout<<p->temp<<endl;
 	cout<<"Weight : ";
 	cout<<p->weight<<endl;
-	//cout<<p->rRemarks;
 	cout<<endl;
 }
 
@@ -64,7 +63,6 @@ patient* nextPatient(doctor* d,patient*p){
 		fin.close();
 		fin.open("admin/records/records.txt");
 		patient* p1=new patient();
-		//cout<<"-->"<<fin.read(reinterpret_cast<char*>(p1), sizeof(patient));
 		while(fin.read(reinterpret_cast<char*>(p1), sizeof(patient)))
 			if(p1->LDAP==next)
 				return p1;
@@ -136,7 +134,7 @@ void doctorInit(int num,doctor* d){
 	cin>>x;
 	int cmd=x-'0';
 	switch(cmd){
-		case 1:{treatPatients(num,d);/*pushQ();*/break;}
+		case 1:{treatPatients(num,d);break;}
 		case 2:{d->onlineDiscussion(num);break;}
 		case 3:{cout<<"Logged Out.."<<endl;return;}
 		default: cout<<"Invalid Value"<<endl;
@@ -147,14 +145,12 @@ void doctorInit(int num,doctor* d){
 	int i=0;
 	while (i++<10){		
 		fin.read(reinterpret_cast<char*>(d1), sizeof(doctor));
-		//cout<<"Updating records";
 		if(d1->LDAP==num){
 			for(int i=0;i<=13;i++)
 				d1->patientQ[i]=d1->patientQ[i+1];
 			d1->patientQ[14]=0;
-			//cout<<"pQ 14: "<<d1->patientQ[14]<<endl;
 			d1->available=1;
-			}
+		}
 		fout.write(reinterpret_cast<char*>(d1), sizeof(doctor));
 	}
 	fin.close();fout.close();

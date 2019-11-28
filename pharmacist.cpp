@@ -13,7 +13,6 @@ void updateInventory(patient* p){
 	inventory in;
 	fin.open("admin/records/inventory.txt");
 	fout.open("admin/records/tempFiles/tempInventory.txt");
-	//cout<<fin.read(reinterpret_cast<char*>(&in), sizeof(inventory))<<endl;
 	while(fin.read(reinterpret_cast<char*>(&in), sizeof(inventory))){
 		int i=-1;
 		while(p->medicine[++i][0])
@@ -82,17 +81,13 @@ void pharmacistInit(int num, pharmacist* f){
 			char cmd[4];
 			cin>>cmd;
 			if(cmd[2]=='\0'){
-				//cout<<"NotHere";
 				id=cmd[1]-'0';
 			}
 			else{
-				//cout<<"Here";
 				id=(cmd[1]-'0')*10+cmd[2]-'0';
 			}
 			patient* p=f->getPrescription(id);
 			int i=-1;
-			// while(p->medicine[++i][0])
-			// 	cout<<p->medicine[i][0]<<" "<<p->medicine[i][1]<<endl;
 			updateInventory(p);
 			cout << "medicines given to " << id << endl;
 		}
