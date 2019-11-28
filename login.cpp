@@ -18,7 +18,7 @@ patient* writePrescription(patient* p){
 		inventory ik;
 		ifstream fin;
 		
-		cout<<"Enter Medicine ID and Quantity: "<<endl;
+		cout<<"Enter Medicine ID and Quantity : (Press '0 0' to stop giving medicines)"<<endl;
 		cin>>med>>quant;
 		for (int i = 0; quant>0 && i<20;){
 			fin.open("admin/records/inventory.txt");
@@ -31,7 +31,7 @@ patient* writePrescription(patient* p){
 				p->medicine[i++][1]=quant;
 			}
 			else
-				cout<<med<<" is insufficient"<<endl;
+				cout<<med<<" is insufficient right now!!!"<<endl;
 			cin>>med>>quant;
 		}
 		cout<<endl;
