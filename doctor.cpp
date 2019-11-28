@@ -35,9 +35,9 @@ void notifyAdmin(int pldap){
 	leave s;
 	s.LDAP=pldap;
 	fout.open("admin/records/leave.txt",ios_base::app);
-	cout<<"Enter Starting Date followed by starting Month"<<endl;
+	cout<<"Enter Starting Date followed by starting Month : "<<endl;
 	cin>>s.startingDate>>s.startingMonth;
-	cout<<"Enter Ending Date followed by Ending Month"<<endl;
+	cout<<"Enter Ending Date followed by Ending Month : "<<endl;
 	cin>>s.endDate>>s.endMonth;
 	fout.write(reinterpret_cast<char*>(&s), sizeof(leave));
 	string send=(string)"notifyAdmin.py P"+to_strng(pldap)+to_string(s.startingDate)+to_string(s.startingMonth)+to_string(s.endDate)+to_string(s.endMonth);
@@ -87,7 +87,7 @@ void treatPatients(int num,doctor* d){
 		cout<<"No patients in the queue..  "<<endl;
 		return;
 	}
-	cout<<endl<<" Next Patient: "<<'P'<<p->LDAP<<endl;
+	cout<<endl<<"Next Patient: "<<'P'<<p->LDAP<<endl;
 	displayMedicalRecord(p);
 	p=writePrescription(p);
 	cout<<"Medical Leave Required?\n(Press 1 for Yes)\n(Press 0 for No)"<<endl;
@@ -117,7 +117,7 @@ void updateRecords(patient* p){
 	while(fin.read(reinterpret_cast<char*>(p2), sizeof(patient)))
 		fout.write(reinterpret_cast<char*>(p2), sizeof(patient));
 	fin.close();fout.close();
-	cout<<"==Records Updated=="<<endl;
+	cout<<"=== Records Updated ==="<<endl;
 	return;				
 	}
 
@@ -128,9 +128,9 @@ void doctorInit(int num,doctor* d){
 	ofstream fout;
 	while(true){	
 	char x;
-	cout<<"Press 1 to Treat patients"<<endl;
-	cout<<"Press 2 for online discussion"<<endl;
-	cout<<"Press 3 to logout"<<endl;
+	cout<<"\nPress 1: To Treat patients"<<endl;
+	cout<<"Press 2: For online discussion"<<endl;
+	cout<<"Press 3: To logout"<<endl;
 	cin>>x;
 	int cmd=x-'0';
 	switch(cmd){

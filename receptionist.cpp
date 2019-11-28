@@ -8,11 +8,11 @@ void initial_diagnosis(int ldapID){
 	float weight;
 	char remarks[20];
 	char remrk[20];
-	cout<<"Enter the body tempearture in Fahrenheit : ";
+	cout<<"\nEnter the body tempearture in Fahrenheit : ";
 	cin>>temp;
-	cout<<"\nEnter the weight in KGs : ";
+	cout<<"Enter the weight in KGs : ";
 	cin>>weight;
-	cout<<"\nEnter the remarks if any : ";
+	cout<<"Enter the remarks if any : ";
 	char x;
 	scanf("%c",&x);
 	fgets (remarks, 25, stdin);
@@ -44,7 +44,7 @@ class receptionist
 	public:
 	int LDAP;
 	void addToQueue(int num,int ind){
-		cout<<"Adding to queue"<<endl;
+		cout<<"Adding to queue......"<<endl;
 		doctor d;
 		ifstream fin;
 		ofstream fout;
@@ -78,7 +78,7 @@ class receptionist
 			// }
 			// cout<<endl;
 			if(ind==d.LDAP){
-				cout<<"Name added to queue"<<endl<<"Current Queue for doctor "<<d.LDAP<<": ";
+				cout<<"Name Adding to queue...\nName added to queue\n"<<endl<<"Current Queue for doctor "<<d.LDAP<<": ";
 				while(d.patientQ[i])
 					cout<<'P'<<d.patientQ[i++]<<" ";
 			}
@@ -104,14 +104,14 @@ class receptionist
 		r->LDAP=num;
 		int cmd;
 		while(true){
-			cout<<"Press 1 to perform initial diagnosis"<<endl;
-			cout<<"Press 2 to logout"<<endl;
+			cout<<"\nPress 1: To perform initial diagnosis"<<endl;
+			cout<<"Press 2: To logout"<<endl;
 			cin>>cmd;
 			if(cmd==2){
 				cout<<"Logging out..."<<endl; 
 				return ;
 			} 
-			cout<<"Enter the patient's LDAP Id (example: P10)"<<endl;
+			cout<<"Enter the patient's LDAP Id (example: P10) : ";
 			char cmd[3];
 			cin>>cmd;
 			int num;

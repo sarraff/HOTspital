@@ -68,15 +68,15 @@ class pharmacist: public patient{
 void pharmacistInit(int num, pharmacist* f){
 	while(true){
 
-		cout<<"Press 1 to give medicine"<<endl;
-		cout<<"Press 2 to view Inventory"<<endl;
-		cout<<"Press 3 to Order Medicines"<<endl;
-		cout<<"Press 4 to log out"<<endl;
+		cout<<"\nPress 1: To give medicine"<<endl;
+		cout<<"Press 2: To view Inventory"<<endl;
+		cout<<"Press 3: To Order Medicines"<<endl;
+		cout<<"Press 4: To log out"<<endl;
 
 		char cmd='0';
 		cin>>cmd;
 		if(cmd=='1'){
-			cout<<"Enter the patient's LDAP (example: P10)"<<endl;
+			cout<<"Enter the patient's LDAP (example: P10) : ";
 			int id;
 			char cmd[4];
 			cin>>cmd;
@@ -89,7 +89,7 @@ void pharmacistInit(int num, pharmacist* f){
 			patient* p=f->getPrescription(id);
 			int i=-1;
 			updateInventory(p);
-			cout << "medicines given to " << id << endl;
+			cout << "Medicines given to " << id << endl;
 		}
 		else if(cmd=='2')
 			f->printInventory();

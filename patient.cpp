@@ -35,7 +35,7 @@ int chooseDoctor(){
 	}
 }
 void takeAppointment(int num){
-	cout<<endl<<"===Doctors Available==="<<endl;
+	cout<<endl<<"=== Doctors Available ==="<<endl;
 	chooseDoctor();
 	int ind;
 	cout<<endl;
@@ -52,10 +52,10 @@ void patientInit(int num,patient* p){
 	p->LDAP=num;
 	while(true){
 	char x;
-	cout<<"Press 1 to Take appointment"<<endl;
-	cout<<"Press 2 for online discussion"<<endl;
-	cout<<"Press 3 to View Medical Report"<<endl;
-	cout<<"Press 4 to logout"<<endl;
+	cout<<"Press 1: To Take appointment"<<endl;
+	cout<<"Press 2: For online discussion"<<endl;
+	cout<<"Press 3: To View Medical Report"<<endl;
+	cout<<"Press 4: To logout"<<endl;
 	cin>>x;
 	int cmd=x-'0';
 	switch(cmd){
