@@ -13,6 +13,7 @@ void updateInventory(patient* p){
 	inventory in;
 	fin.open("admin/records/inventory.txt");
 	fout.open("admin/records/tempFiles/tempInventory.txt");
+	//cout<<fin.read(reinterpret_cast<char*>(&in), sizeof(inventory))<<endl;
 	while(fin.read(reinterpret_cast<char*>(&in), sizeof(inventory))){
 		int i=-1;
 		while(p->medicine[++i][0])
@@ -68,28 +69,32 @@ class pharmacist: public patient{
 void pharmacistInit(int num, pharmacist* f){
 	while(true){
 
-		cout<<"\nPress 1: To give medicine"<<endl;
-		cout<<"Press 2: To view Inventory"<<endl;
-		cout<<"Press 3: To Order Medicines"<<endl;
-		cout<<"Press 4: To log out"<<endl;
+		cout<<"Press 1 to give medicine"<<endl;
+		cout<<"Press 2 to view Inventory"<<endl;
+		cout<<"Press 3 to Order Medicines"<<endl;
+		cout<<"Press 4 to log out"<<endl;
 
 		char cmd='0';
 		cin>>cmd;
 		if(cmd=='1'){
-			cout<<"Enter the patient's LDAP (example: P10) : ";
+			cout<<"Enter the patient's LDAP (example: P10)"<<endl;
 			int id;
 			char cmd[4];
 			cin>>cmd;
 			if(cmd[2]=='\0'){
+				//cout<<"NotHere";
 				id=cmd[1]-'0';
 			}
 			else{
+				//cout<<"Here";
 				id=(cmd[1]-'0')*10+cmd[2]-'0';
 			}
 			patient* p=f->getPrescription(id);
 			int i=-1;
+			// while(p->medicine[++i][0])
+			// 	cout<<p->medicine[i][0]<<" "<<p->medicine[i][1]<<endl;
 			updateInventory(p);
-			cout << "Medicines given to " << id << endl;
+			cout << "medicines given to " << id << endl;
 		}
 		else if(cmd=='2')
 			f->printInventory();

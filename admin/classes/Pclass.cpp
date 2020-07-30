@@ -1,4 +1,7 @@
 #include <bits/stdc++.h>
+//#include "../../receptionist.cpp"
+//#include "../../doctor.cpp"
+//#include "updateQueue.cpp"
 using namespace std;
 
 // DO NOT TAMPER WITH
@@ -37,9 +40,10 @@ public:
 	friend void maintainInventory(patient* p);
 	friend patient* findPrescription(int LDAP);
 	friend patient* writePrescription(patient* p);
+	//friend int nextPatient(patient*p);
 	friend void updateRecords(patient* p);
-	friend int chooseDoctor();
-	friend void takeAppointment(int num);
+	friend int chooseDoctor();//{cout<<"inside virtual"<<endl;};
+	friend void takeAppointment(int num);//{cout<<"takeAppointment virtual"<<endl;}
 	void onlineDiscussion(int p){
 		cout<<"OnlineDiscussion"<<endl;
 		return;
@@ -50,5 +54,6 @@ public:
 	void setEm(long x){
 		emergency=x;
 	}
-		
+	//~patient();
+	
 };
