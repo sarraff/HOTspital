@@ -8,7 +8,7 @@ A platform where all the actions related to the health center are performed. For
 The project runs in all environments.
 Clone the repository:
 ```bash
-git clone https://github.com/harsh-not-haarsh/HOTspital.git
+git clone https://github.com/sarraff/HOTspital.git
 ```
 
 Navigate into repository:
